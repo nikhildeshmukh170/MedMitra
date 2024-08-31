@@ -1,0 +1,27 @@
+input[type=radio]{
+    display: none;
+}
+.Rate{
+    width: 140px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    place-items: end;
+}
+
+.Rate .star{
+    width: 24px;
+    cursor: pointer;
+}
+
+.star FaStar{
+    border: 1px solid #fff;
+}
+
+.Rate p{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    /* margin-top: 20px; */
+    /* background-color: ; */
+}
