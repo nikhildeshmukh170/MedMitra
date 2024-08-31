@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './patient/components/Login/Login';
 import Home from './patient/pages/Home/Home';
+import Homecopy from './patient/pages/Home/Homecopy';
 import DoctorHome from './patient/pages/Home/DoctorHome/DoctorHome';
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<LoginPage setUserRole={setUserRole} />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Homecopy />} />
         <Route path="/doctor-home" element={<DoctorHome />} />
         {/* Redirect to appropriate home page based on role */}
         <Route

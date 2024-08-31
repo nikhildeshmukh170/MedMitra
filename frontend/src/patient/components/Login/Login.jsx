@@ -1,30 +1,42 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function LoginPage({ setIsAuthenticated }) {
+export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
+  const navigate = useNavigate();  // Initialize useNavigate for redirecting
+
+  // Dummy credentials
+  const dummyEmail = 'test@example.com';
+  const dummyPassword = '123';
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Check if both fields are filled
     if (!email || !password) {
       setError('Please fill in all fields.');
       return;
     }
 
-    setError('');
-    setIsAuthenticated(true);
-    navigate('/'); // Redirect to home page after login
+    // Validate the input against dummy credentials
+    if (email === dummyEmail && password === dummyPassword) {
+      setError('');
+      navigate('/home');  // Redirect to the homepage after successful login
+    } else {
+      setError('Invalid email or password.');  // Set error message if credentials don't match
+    }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-900">Login</h2>
-        {error && <div className="text-red-500 text-sm text-center">{error}</div>}
+        {error && (
+          <div className="text-red-500 text-sm text-center">{error}</div>
+        )}
+
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {/* Email and password fields */}
           <div>
