@@ -1,78 +1,114 @@
-import { useState } from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export default function LoginPage() {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const navigate = useNavigate();  // Initialize useNavigate for redirecting
+  const [role, setRole] = useState(''); // New state for role
+  const navigate = useNavigate(); // Use the useNavigate hook
 
-  // Dummy credentials
-  const dummyEmail = 'test@example.com';
-  const dummyPassword = '123';
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Check if both fields are filled
-    if (!email || !password) {
-      setError('Please fill in all fields.');
-      return;
-    }
-
-    // Validate the input against dummy credentials
-    if (email === dummyEmail && password === dummyPassword) {
-      setError('');
-      navigate('/home');  // Redirect to the homepage after successful login
-    } else {
-      setError('Invalid email or password.');  // Set error message if credentials don't match
+    try {
+      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      toast.success('Login Successful');
+      console.log(res.data); // This should log the token or user data
+      
+      // Redirect to the home page based on the selected role
+      switch (role) {
+        case 'patient':
+          navigate('/patienthome');
+          break;
+        case 'doctor':
+          navigate('/doctorhome');
+          break;
+        case 'receptionist':
+          navigate('/receptionisthome');
+          break;
+        case 'cityadmin':
+          navigate('/cityadminhome');
+          break;
+        case 'pharmacy':
+          navigate('/pharmacyhome');
+          break;
+        default:
+          navigate('/home'); // Fallback if no role is selected
+          break;
+      }
+    } catch (err) {
+      console.error('Login Error:', err.response?.data || err.message);
+      toast.error(err.response?.data?.msg || 'An error occurred');
     }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold text-center text-gray-900">Login</h2>
-        {error && (
-          <div className="text-red-500 text-sm text-center">{error}</div>
-        )}
-
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          {/* Email and password fields */}
+      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
+        <h1 className="text-3xl font-semibold mb-6 text-center text-gray-800">Login</h1>
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
+            <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+              Email
+            </label>
             <input
-              id="email-address"
-              name="email"
               type="email"
-              autoComplete="email"
-              required
-              className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 bg-gray-100 border border-gray-300 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-              placeholder="Email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
+            <label htmlFor="password" className="block text-gray-700 font-medium mb-2">
+              Password
+            </label>
             <input
-              id="password"
-              name="password"
               type="password"
-              autoComplete="current-password"
-              required
-              className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 bg-gray-100 border border-gray-300 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+          </div>
+          <div>
+            <label htmlFor="role" className="block text-gray-700 font-medium mb-2">
+              Role
+            </label>
+            <select
+              id="role"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              required
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="">Select Role</option>
+              <option value="patient">Patient</option>
+              <option value="doctor">Doctor</option>
+              <option value="receptionist">Receptionist</option>
+              <option value="cityadmin">City Admin</option>
+              <option value="pharmacy">Pharmacy</option>
+            </select>
           </div>
           <button
             type="submit"
-            className="relative flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md group hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
           >
-            Sign in
+            Login
           </button>
+          <p className="text-center text-gray-600 mt-4">
+            Don't have an account?{' '}
+            <a href="/signup" className="text-blue-500 hover:underline">
+              Sign Up
+            </a>
+          </p>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
-}
+};
+
+export default Login;

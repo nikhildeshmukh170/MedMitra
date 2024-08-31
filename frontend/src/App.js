@@ -1,10 +1,10 @@
-// App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './patient/components/Login/Login';
 import Home from './patient/pages/Home/Home';
 import Homecopy from './patient/pages/Home/Homecopy';
-import DoctorHome from './patient/pages/Home/DoctorHome/DoctorHome';
+import DoctorHome from './patient/pages/Home/DoctorHome';
+import Signup from './patient/components/SignUp/Signup'; // Import the Signup component
 
 function App() {
   // Assume userRole is determined after login
@@ -15,11 +15,12 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<LoginPage setUserRole={setUserRole} />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Homecopy />} />
-        <Route path="/doctor-home" element={<DoctorHome />} />
+        <Route path="/signup" element={<Signup />} /> {/* Add signup route */}
+        <Route path="/patienthome" element={<Homecopy />} />
+        <Route path="/doctorhome" element={<DoctorHome />} />
+        <Route path='/' element={<Home />} />
         {/* Redirect to appropriate home page based on role */}
-        <Route
+        {/* <Route
           path="/"
           element={
             userRole === 'patient' ? (
@@ -30,7 +31,7 @@ function App() {
               <Navigate to="/login" />
             )
           }
-        />
+        /> */}
       </Routes>
     </Router>
   );

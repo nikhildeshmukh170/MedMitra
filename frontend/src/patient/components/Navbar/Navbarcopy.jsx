@@ -24,7 +24,7 @@ import {
     return classes.filter(Boolean).join(" ");
   }
   
-  export default function Navbar() {
+  export default function Navbarcopy() {
     const [isAuthenticated, setIsAuthenticated] = useState(false); // State to manage authentication status
     const navigate = useNavigate();
   

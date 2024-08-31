@@ -2,12 +2,15 @@ import bedimg from "../../../assets/inpatient.png";
 import emeimg from "../../../assets/emeimg.png";
 import { Button } from '@headlessui/react';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import Rate from "../Rate/Rate";
 
 const HospitalItemCard = ({ id, name, special, location, totalbed, bed, emtotalbed, embed, discription, image, isLoggedIn }) => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [showLoginPrompt, setShowLoginPrompt] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleBookNowClick = () => {
     setShowConfirmModal(true);
@@ -16,7 +19,7 @@ const HospitalItemCard = ({ id, name, special, location, totalbed, bed, emtotalb
   const handleConfirm = () => {
     setShowConfirmModal(false);
     if (!isLoggedIn) {
-      setShowLoginPrompt(true);
+      navigate('/login'); // Redirect to login page
     } else {
       setShowSuccessMessage(true);
     }
