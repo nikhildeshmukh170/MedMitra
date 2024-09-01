@@ -29,10 +29,10 @@ const Login = () => {
           navigate('/receptionisthome');
           break;
         case 'cityadmin':
-          navigate('/cityadminhome');
+          navigate('/admin');
           break;
         case 'pharmacy':
-          navigate('/pharmacyhome');
+          navigate('/pharmacy');
           break;
         default:
           navigate('/home'); // Fallback if no role is selected

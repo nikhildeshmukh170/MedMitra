@@ -4,6 +4,7 @@ import Maincarosel from '../../components/HomeCarousel/MainCarousel';
 import HospitalDetails from '../../components/HospitalDetails/HospitalDetails';
 import Footer from '../../components/Footer/Footer';
 import hospitalData from '../../components/HospitalDetails/HospitalData'; // Import the hospital data
+import Chatbot from '../Home/chabot'; // Import the Chatbot component
 
 const Home = () => {
   // State to hold the search query
@@ -20,7 +21,9 @@ const Home = () => {
   );
 
   return (
+    
     <div className="Home">
+      <Chatbot />
       <div className='Navbar mb-2'>
         <Navbar />
       </div>
@@ -49,8 +52,15 @@ const Home = () => {
           <HospitalDetails hospitalData={filteredHospitals} />
         </div>
       </div>
+      <div className="chatbot">
+      <Chatbot />
+      </div>
+      
       <div className='Footer'>
         <Footer />
+      </div>
+      <div className="chatbot">
+      <Chatbot />
       </div>
     </div>
   );

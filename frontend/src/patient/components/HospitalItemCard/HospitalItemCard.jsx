@@ -5,11 +5,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import Rate from "../Rate/Rate";
 
-const HospitalItemCard = ({ id, name, special, location, totalbed, bed, emtotalbed, embed, discription, image, isLoggedIn }) => {
+const HospitalItemCard = ({ id, name, special, location, totalbed, bed: initialBed, emtotalbed, embed, description, image, isLoggedIn }) => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [showLoginPrompt, setShowLoginPrompt] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  
+  const [bed, setBed] = useState(initialBed); // State to manage bed count
+  const [areButtonsDisabled, setAreButtonsDisabled] = useState(false); // State to manage button disable status
+
   const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleBookNowClick = () => {
@@ -18,11 +20,9 @@ const HospitalItemCard = ({ id, name, special, location, totalbed, bed, emtotalb
 
   const handleConfirm = () => {
     setShowConfirmModal(false);
-    if (!isLoggedIn) {
-      navigate('/login'); // Redirect to login page
-    } else {
-      setShowSuccessMessage(true);
-    }
+    setBed((prevBed) => prevBed - 1); // Decrement the bed count by 1
+    setAreButtonsDisabled(true); // Disable all buttons
+    alert("Successfully booked!");
   };
 
   const handleCloseModal = () => {
@@ -50,7 +50,7 @@ const HospitalItemCard = ({ id, name, special, location, totalbed, bed, emtotalb
         <h2 className="hospital-name text-2xl font-bold">{name}</h2>
         <p className="hospital-description text-gray-700 font-medium text-xs -mt-2">{special}</p>
         <p className="hospital-description text-gray-700 font-medium text-xs -mt-2">{location}</p>
-        <p className="hospital-description text-gray-700 font-large text-base">{discription}</p>
+        <p className="hospital-description text-gray-700 font-large text-base">{description}</p>
       </div>
 
       {/* Right Section: Price and Button */}
@@ -64,7 +64,11 @@ const HospitalItemCard = ({ id, name, special, location, totalbed, bed, emtotalb
             <img className="w-[24px]" src={bedimg} alt="Total Beds" />:<span className="text-green-600">{bed}</span>/<span className="text-gray-600">{totalbed}</span>
           </div>
         </div>
-        <Button onClick={handleBookNowClick} className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 justify-center mx-5 mt-5">
+        <Button 
+          onClick={handleBookNowClick} 
+          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 justify-center mx-5 mt-5"
+          disabled={areButtonsDisabled}
+        >
           BOOK NOW
         </Button>
       </div>

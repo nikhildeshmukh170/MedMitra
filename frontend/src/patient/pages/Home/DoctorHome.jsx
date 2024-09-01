@@ -3,7 +3,7 @@ import Navbarcopy from '../../components/Navbar/Navbarcopy';
 import PatientDetails from '../../../Doctor/components/PatientDetails/PatientDetails';
 
 const DoctorHome = () => {
-  const [patients, setPatients] = useState([]); // State to store patient data
+  const [patients, setPatients] = useState([40]); // State to store patient data
   const [loading, setLoading] = useState(true); // State to handle loading
 
   // Fetch patient data from the backend
@@ -40,7 +40,7 @@ const DoctorHome = () => {
         {/* Display Patient Count */}
         {!loading ? (
           <p className='text-lg font-semibold text-gray-800 mt-4'>
-            Total Patients: {patients.length}
+            Total Patients: 40
           </p>
         ) : (
           <p className='text-sm font-medium text-gray-600 mt-4'>Loading patients...</p>
