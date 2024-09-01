@@ -2,6 +2,10 @@
 import AIIMSimg from "../../../assets/aiims.jpeg"
 import Maximg from "../../../assets/Max.jpg"
 import Hemeimg from "../../../assets/Heme.jpg"
+import forties from "../../../assets/forties.jpeg"
+import Apollo from "../../../assets/Apollo.jpeg"
+import manipal from "../../../assets/Manipal.jpeg"
+import lilavati from "../../../assets/Lilavati.jpeg"
 
 const hospitalData = [
     {
@@ -50,7 +54,7 @@ const hospitalData = [
         discription: 'Description A',
         Special: 'Heart speacial/ General / Emergency',
         location:'Greater Noida, Up-211310',
-        image: AIIMSimg,
+        image: forties,
       },
       {
         _id: 5,
@@ -62,37 +66,37 @@ const hospitalData = [
         discription: 'Description B',
         Special: 'Heart speacial/ General / Emergency',
         location:'Noida, Up-201910',
-        image: Maximg,
+        image: Apollo,
       },
       {
         _id: 6,
         name: "Manipal Hospitals",
-        bed: 300,
-        totalbed: 400,
+        bed: 150,
+        totalbed: 300,
         embed: 10,
         emtotalbed: 12,
         discription: 'Description C',
         Special: 'Heart speacial/ General / Emergency',
         location:'Delhi, Delhi-100010',
-        image: Hemeimg,
+        image: manipal,
       },
       {
         _id: 7,
           name: "Lilavati Hospital",
-        bed: 300,
-        totalbed: 400,
+        bed: 7,
+        totalbed: 100,
         embed: 7,
         emtotalbed: 15,
         discription: 'Description C',
         Special: 'Heart speacial/ General / Emergency',
         location:'Delhi, Delhi-100010',
-        image: Hemeimg,
+        image: lilavati,
       },
       {
         _id: 8,
           name: "Columbia Asia",
-        bed: 300,
-        totalbed: 400,
+        bed: 10,
+        totalbed: 120,
         embed: 20,
         emtotalbed: 50,
         discription: 'Description C',
@@ -103,8 +107,8 @@ const hospitalData = [
       {
         _id: 9,
           name: "Kokilaben Dhirubhai Ambani Hospital",
-        bed: 300,
-        totalbed: 400,
+        bed: 50,
+        totalbed: 140,
         embed: 0,
         emtotalbed: 0,
         discription: 'Description C',
@@ -115,8 +119,8 @@ const hospitalData = [
       {
         _id: 10,
           name: "Jaslok Hospital",
-        bed: 300,
-        totalbed: 400,
+        bed: 13,
+        totalbed: 60,
         embed: 0,
         emtotalbed: 0,
         discription: 'Description C',
