@@ -77,19 +77,7 @@ const hospitalData = [
         image: Hemeimg,
       },
       {
-        _id: 6,
-        name: "Manipal Hospitals",
-        bed: 300,
-        totalbed: 400,
-        embed: 10,
-        emtotalbed: 12,
-        discription: 'Description C',
-        Special: 'Heart speacial/ General / Emergency',
-        location:'Delhi, Delhi-100010',
-        image: Hemeimg,
-      },
-      {
-        id: 7,
+        _id: 7,
           name: "Lilavati Hospital",
         bed: 300,
         totalbed: 400,
@@ -101,7 +89,7 @@ const hospitalData = [
         image: Hemeimg,
       },
       {
-        id: 8,
+        _id: 8,
           name: "Columbia Asia",
         bed: 300,
         totalbed: 400,
@@ -113,7 +101,7 @@ const hospitalData = [
         image: Hemeimg,
       },
       {
-        id: 9,
+        _id: 9,
           name: "Kokilaben Dhirubhai Ambani Hospital",
         bed: 300,
         totalbed: 400,
@@ -125,7 +113,7 @@ const hospitalData = [
         image: Hemeimg,
       },
       {
-        id: 10,
+        _id: 10,
           name: "Jaslok Hospital",
         bed: 300,
         totalbed: 400,
