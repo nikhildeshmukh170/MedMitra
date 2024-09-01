@@ -1,9 +1,9 @@
 
-import Medmitracarousel1 from "../../../assets/Medmitracarousel1.png"
-import Medmitracarousel2 from "../../../assets/Medmitracarousel2.png"
-import Medmitracarousel3 from "../../../assets/Medmitracarousel3.png"
-import Medmitracarousel4 from "../../../assets/Medmitracarousel4.png"
-import Medmitracarousel5 from "../../../assets/Medmitracarousel5.png"
+import Medmitracarousel1 from "../../../assets/medmitracarousel1.png"
+import Medmitracarousel2 from "../../../assets/medmitracarousel2.png"
+import Medmitracarousel3 from "../../../assets/medmitracarousel3.png"
+import Medmitracarousel4 from "../../../assets/medmitracarousel4.png"
+import Medmitracarousel5 from "../../../assets/medmitracarousel5.png"
 
 export const MainCaroselData = [
     {
