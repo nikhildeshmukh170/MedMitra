@@ -16,12 +16,16 @@ const Home = () => {
   };
 
   // Filter the hospital data based on the search query
-  const filteredHospitals = hospitalData.filter((hospital) =>
-    hospital.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredHospitals = hospitalData.filter((hospital) => {
+    const query = searchQuery.toLowerCase();
+    return (
+      (hospital.name && hospital.name.toLowerCase().includes(query)) ||
+      (hospital.Special && hospital.Special.toLowerCase().includes(query)) ||
+      (hospital.location && hospital.location.toLowerCase().includes(query))
+    );
+  });
 
   return (
-    
     <div className="Home">
       <Chatbot />
       <div className='Navbar mb-2'>
@@ -40,7 +44,7 @@ const Home = () => {
             <div className="search-bar mx-32 mb-10">
               <input
                 type="text"
-                placeholder="Search hospitals..."
+                placeholder="Search hospitals by name, specialization, or location..."
                 className="border border-gray-300 rounded px-4 py-2 w-full"
                 value={searchQuery}
                 onChange={handleSearchChange}
@@ -52,15 +56,8 @@ const Home = () => {
           <HospitalDetails hospitalData={filteredHospitals} />
         </div>
       </div>
-      <div className="chatbot">
-      <Chatbot />
-      </div>
-      
       <div className='Footer'>
         <Footer />
-      </div>
-      <div className="chatbot">
-      <Chatbot />
       </div>
     </div>
   );

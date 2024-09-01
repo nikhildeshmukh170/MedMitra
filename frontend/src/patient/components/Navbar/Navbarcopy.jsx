@@ -19,6 +19,9 @@ import {
     { name: "Contact us", href: "/contact", current: false },
     { name: "Site map", href: "/sitemap", current: false },
   ];
+
+    
+
   
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -118,12 +121,14 @@ import {
                       </Link>
                     </MenuItem>
                     <MenuItem>
+                    <a  href="/login">
                       <button
-                        onClick='/'
+                        
                         className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Log out
                       </button>
+                      </a>
                     </MenuItem>
                   </MenuItems>
                 </Menu>

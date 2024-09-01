@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbarcopy from '../components/Navbar/Navbarcopy';
 
 // Dummy data for hospitals and patients
 const dummyHospitals = [
@@ -115,14 +116,15 @@ const CityAdminPage = () => {
     };
   
     return (
-      <div className="p-8 bg-red-50 min-h-screen">
-        <h1 className="text-4xl font-bold text-center text-red-900 mb-12">City Admin Dashboard</h1>
+      <div className=" bg-red-50 min-h-screen">
+        <Navbarcopy />
+        <h1 className="text-4xl font-bold text-center text-red-900 mb-12 mt-10">City Admin Dashboard</h1>
         
         <div className="space-y-8">
           {dummyHospitals.map((hospital) => (
             <div key={hospital.id} className="bg-white rounded-lg shadow-lg border border-red-300">
               {/* Hospital Header */}
-              <div className="flex justify-between items-center cursor-pointer bg-blue-600 text-white p-4 rounded-t-lg" onClick={() => toggleExpand(hospital.id)}>
+              <div className="flex justify-between items-center cursor-pointer bg-blue-400 text-white p-4 rounded-t-lg" onClick={() => toggleExpand(hospital.id)}>
                 <h2 className="text-xl font-semibold">{hospital.name}</h2>
                 <button className="text-yellow-100 hover:text-yellow-300 font-medium">
                   {expandedHospitalId === hospital.id ? "Collapse" : "Expand"}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbarcopy from '../components/Navbar/Navbarcopy';
 
 // Sample data including prescriptions
 const dummyHospitals = [
@@ -114,7 +115,8 @@ const PharmacyPage = () => {
     };
   
     return (
-      <div className="p-6 bg-blue-50 min-h-screen">
+      <div className="bg-blue-50 min-h-screen">
+        <Navbarcopy />
         <h1 className="text-3xl font-extrabold text-blue-800 mb-6">Pharmacy Page</h1>
         {dummyHospitals.map((hospital) => (
           <div key={hospital.id} className="bg-white shadow-md rounded-lg mb-6 border border-blue-200">

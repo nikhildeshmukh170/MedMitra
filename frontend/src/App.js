@@ -9,6 +9,7 @@ import Chatbot from './patient/pages/Home/chabot';
 import ReceptionistHome from './patient/pages/Home/ReceptionistHome';
 import CityAdminPage from './patient/pages/cityadmin';
 import PharmacyPage from './patient/pages/pharmacy';
+import About from './patient/pages/Home/About';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<LoginPage setUserRole={setUserRole} />} />
+        <Route path="/about" element={<About />} />
         <Route path="/chat" element={<Chatbot setUserRole={setUserRole} />} />
         <Route path="/signup" element={<Signup />} /> {/* Add signup route */}
         <Route path="/patienthome" element={<Homecopy />} />
