@@ -22,7 +22,7 @@ const TreatmentForm = ({ patient, onClose, onSave }) => {
 
     try {
       // Make a POST request to the backend API
-      const response = await fetch('http://localhost:5000/api/treatment', {
+      const response = await fetch('https://medmitra.onrender.com/api/treatment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
