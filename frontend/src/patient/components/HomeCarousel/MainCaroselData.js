@@ -1,4 +1,4 @@
-
+// import medmitracarousel6 from "../../../assets/medmitracarousel1.png"
 import medmitracarousel1 from "../../../assets/medmitracarousel1.png"
 import medmitracarousel2 from "../../../assets/medmitracarousel2.png"
 import medmitracarousel3 from "../../../assets/medmitracarousel3.png"
