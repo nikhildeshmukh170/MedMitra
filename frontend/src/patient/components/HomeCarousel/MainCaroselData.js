@@ -1,34 +1,34 @@
 
-import Medmitracarousel1 from "../../../assets/medmitracarousel1.png"
-import Medmitracarousel2 from "../../../assets/medmitracarousel2.png"
-import Medmitracarousel3 from "../../../assets/medmitracarousel3.png"
-import Medmitracarousel4 from "../../../assets/medmitracarousel4.png"
-import Medmitracarousel5 from "../../../assets/medmitracarousel5.png"
+import medmitracarousel1 from "../../../assets/medmitracarousel1.png"
+import medmitracarousel2 from "../../../assets/medmitracarousel2.png"
+import medmitracarousel3 from "../../../assets/medmitracarousel3.png"
+import medmitracarousel4 from "../../../assets/medmitracarousel4.png"
+import medmitracarousel5 from "../../../assets/medmitracarousel5.png"
 
 export const MainCaroselData = [
     {
         id: "01",
-        src: Medmitracarousel1
+        src: medmitracarousel1
 
     },
     {
         id: "02",
-        src: Medmitracarousel2
+        src: medmitracarousel2
 
     },
     {
         id: "03",
-        src: Medmitracarousel3
+        src: medmitracarousel3
 
     },
     {
         id: "04",
-        src: Medmitracarousel4
+        src: medmitracarousel4
 
     },
     {
         id: "05",
-        src: Medmitracarousel5
+        src: medmitracarousel5
 
     },
 
