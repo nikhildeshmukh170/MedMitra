@@ -36,7 +36,7 @@ const Signup = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const res = await axios.post('https://medmitra.onrender.com/api/auth/register', formData);
       toast.success('Sign Up Successful!');
       console.log(res.data); // This would include the JWT token
       setFormData({
