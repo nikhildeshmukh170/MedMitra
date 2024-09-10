@@ -10,6 +10,7 @@ import ReceptionistHome from './patient/pages/Home/ReceptionistHome';
 import CityAdminPage from './patient/pages/cityadmin';
 import PharmacyPage from './patient/pages/pharmacy';
 import About from './patient/pages/Home/About';
+import { Analytics } from "@vercel/analytics/react"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <Router>
+       <Analytics />
       <Routes>
         <Route path="/login" element={<LoginPage setUserRole={setUserRole} />} />
         <Route path="/about" element={<About />} />
